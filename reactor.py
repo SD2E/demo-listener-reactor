@@ -18,6 +18,7 @@ def main():
 
     r.logger.info("Message: {}".format(m))
     r.logger.debug("Config: {}".format(r.settings))
+    r.logger.debug("Context: {}".format(r.context))
     r.logger.debug("Raw Message: {}".format(r.context.raw_message))
     r.logger.debug("Parse Log: {}".format(r.context.raw_message_parse_log))
 
