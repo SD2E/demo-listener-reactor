@@ -1,0 +1,9 @@
+# Reactor
+REACTOR_NAME=listener
+REACTOR_DESCRIPTION="Publicly accessible reactor to help validate messaging behavior."
+REACTOR_ALIAS=demo-listener
+
+# Docker image
+DOCKER_HUB_ORG=sd2e
+DOCKER_IMAGE_TAG=listener
+DOCKER_IMAGE_VERSION=0.1.0
