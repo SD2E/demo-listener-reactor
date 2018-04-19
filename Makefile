@@ -10,6 +10,10 @@ container-py3:
 container:
 	bash tests/run_deploy_with_updates.sh -R -k -F Dockerfile
 
+shell: clean
+	bash tests/run_container_tests.sh bash
+
+
 tests-local: clean
 	bash tests/run_container_tests.sh pytest tests -s -vvv
 
@@ -24,4 +28,6 @@ tests: tests-local tests-reactor
 
 deploy: clean
 	bash tests/run_deploy_with_updates.sh
+
+after: deploy
 	bash tests/run_after_deploy.sh
