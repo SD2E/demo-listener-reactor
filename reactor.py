@@ -21,6 +21,7 @@ def main():
     r.logger.debug("Context: {}".format(r.context))
     r.logger.debug("Raw Message: {}".format(r.context.raw_message))
     r.logger.debug("Parse Log: {}".format(r.context.raw_message_parse_log))
+    r.logger.debug("Name: {}".format(r.get_attr(attribute='name')))
 
     # Look for sender tags
     for (k, v) in SPECIAL_VARS_MAP.items():
