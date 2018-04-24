@@ -3,3 +3,8 @@ logs:
   level: DEBUG
   file: ~
   token: ~
+slack:
+  channel: "notifications"
+  webhook: ~
+logger:
+  token: ~
