@@ -70,7 +70,7 @@ def test_reactor_main(monkeypatch, caplog,
     # s/reactor.py/reactor/
     import reactor as r
     r.main()
-    assert "Message" in caplog.text
+    assert "message:" in caplog.text
     # This message is also plaintext so won't parse to JSON
     # this is acceptable - we just need to be defensive about handling it
     assert "Error parsing message" in caplog.text
@@ -102,5 +102,4 @@ def test_reactor_sender_tag(monkeypatch, caplog,
     import reactor as r
     r.main()
     # parse log log
-    assert "tag x_src_actor_id: abcdefg" in caplog.text
-    assert "tag x_src_execution_id: 123456" in caplog.text
+    assert "var mockup.x_src_actor_id.abcdefg" in caplog.text

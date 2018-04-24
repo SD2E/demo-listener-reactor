@@ -15,18 +15,25 @@ def main():
     """Receive a message and provide as much debugging info as possible"""
     r = Reactor()
     m = AttrDict(r.context.message_dict)
+    aname = r.get_attr('name')
 
-    r.logger.info("Message: {}".format(m))
-    r.logger.debug("Config: {}".format(r.settings))
-    r.logger.debug("Context: {}".format(r.context))
-    r.logger.debug("Raw Message: {}".format(r.context.raw_message))
-    r.logger.debug("Parse Log: {}".format(r.context.raw_message_parse_log))
-    r.logger.debug("Name: {}".format(r.get_attr(attribute='name')))
+    r.logger.info("my name is: {}".format(aname))
+    r.logger.info("my nickname is: {}".format(r.nickname))
+
+    r.logger.debug("my config is: {}".format(r.settings))
+
+    r.logger.debug("context: {}".format(r.context))
+    r.logger.info("message: {}".format(m))
+
+    r.logger.debug("raw message: {}".format(r.context.raw_message))
+    r.logger.debug("message parsing log: {}".format(r.context.raw_message_parse_log))
+
+    r.logger.info("your username is: {}".format(r.username))
 
     # Look for sender tags
     for (k, v) in SPECIAL_VARS_MAP.items():
         if os.environ.get(v) is not None:
-            r.logger.debug("tag {}: {}".format(v, os.environ.get(v)))
+            r.logger.debug("var {}.{}.{}".format(aname, v, os.environ.get(v)))
 
 
 if __name__ == '__main__':
